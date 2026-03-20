@@ -65,6 +65,11 @@ export const pluginImageMap: Record<string, string> = {
   'prism-charango': '/plugins/Charango.png',
   'prism-gamelan': '/plugins/Gamelan.png',
   'prism-morin-khuur': '/plugins/Morin_Khuur.png',
+  'zephyr-flanger': '/plugins/Zephyr_Flanger.png',
+  'vortex-auto-wah': '/plugins/Vortex_Auto_Wah.png',
+  'aether-ring-mod': '/plugins/Aether_Ring_Mod.png',
+  'pyre-spring-reverb': '/plugins/Pyre_Spring_Reverb.png',
+  'prism-pedalboard': '/plugins/Pedalboard.png',
 };
 
 export function getPluginImage(pluginId: string): string | undefined {
