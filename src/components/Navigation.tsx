@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { collections } from '@/data/plugins';
+import { effectsSynthsCollections, worldCollections } from '@/data/plugins';
 import { useCart } from '@/context/CartContext';
 
 export default function Navigation() {
@@ -22,7 +22,6 @@ export default function Navigation() {
           <div className="relative h-9 w-9">
             <div className="animated-border absolute inset-0 rounded-lg opacity-60" />
             <div className="absolute inset-[1px] flex items-center justify-center rounded-lg bg-[#14152E]">
-              {/* Prism triangle */}
               <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none">
                 <path d="M12 2L2 20h20L12 2z" stroke="url(#prism-nav)" strokeWidth="1.5" strokeLinejoin="round" fill="none"/>
                 <defs>
@@ -43,7 +42,6 @@ export default function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden items-center gap-8 lg:flex">
-          {/* Products dropdown */}
           <div
             className="relative"
             onMouseEnter={() => setProductsOpen(true)}
@@ -57,29 +55,40 @@ export default function Navigation() {
             </button>
 
             {productsOpen && (
-              <div className="absolute left-1/2 top-full mt-3 w-[340px] -translate-x-1/2 rounded-xl border border-prism-violet/10 bg-[#14152E]/98 p-5 shadow-2xl backdrop-blur-xl">
-                <div className="mb-3 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/50">Browse Collections</div>
-                {collections.map((col) => (
-                  <Link
-                    key={col.id}
-                    href={`/collections/${col.id}`}
-                    className="group flex items-center gap-3 rounded-lg p-3 transition hover:bg-white/5"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    <div className={`h-9 w-9 rounded-lg bg-gradient-to-br ${col.gradient} opacity-80`} />
-                    <div>
-                      <div className="text-[15px] font-medium text-white/90">{col.name}</div>
-                      <div className="text-[13px] text-white/50">{col.subtitle} — {col.plugins.length} plugins</div>
+              <div className="absolute left-1/2 top-full mt-3 w-[520px] -translate-x-1/2 rounded-xl border border-prism-violet/10 bg-[#14152E]/98 p-5 shadow-2xl backdrop-blur-xl">
+                <div className="grid grid-cols-2 gap-6">
+                  {/* Effects & Synths */}
+                  <div>
+                    <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/50">Effects & Synths</div>
+                    {effectsSynthsCollections.map((col) => (
+                      <Link key={col.id} href={`/collections/${col.id}`} className="group flex items-center gap-3 rounded-lg p-2.5 transition hover:bg-white/5" onClick={() => setProductsOpen(false)}>
+                        <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${col.gradient} opacity-80`} />
+                        <div>
+                          <div className="text-[14px] font-medium text-white/90">{col.name}</div>
+                          <div className="text-[12px] text-white/50">{col.plugins.length} plugins</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                  {/* World Instruments */}
+                  <div>
+                    <div className="mb-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-white/50">World Instruments</div>
+                    <div className="max-h-[340px] overflow-y-auto pr-1">
+                      {worldCollections.map((col) => (
+                        <Link key={col.id} href={`/collections/${col.id}`} className="group flex items-center gap-3 rounded-lg p-2.5 transition hover:bg-white/5" onClick={() => setProductsOpen(false)}>
+                          <div className={`h-8 w-8 rounded-lg bg-gradient-to-br ${col.gradient} opacity-80`} />
+                          <div>
+                            <div className="text-[14px] font-medium text-white/90">{col.name}</div>
+                            <div className="text-[12px] text-white/50">{col.subtitle}</div>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                  </Link>
-                ))}
+                  </div>
+                </div>
                 <div className="mt-3 border-t border-white/5 pt-3">
-                  <Link
-                    href="/pricing"
-                    className="block rounded-lg p-3 text-[15px] font-medium text-prism-cyan transition hover:bg-white/5"
-                    onClick={() => setProductsOpen(false)}
-                  >
-                    View All Pricing →
+                  <Link href="/pricing" className="block rounded-lg p-3 text-[15px] font-medium text-prism-cyan transition hover:bg-white/5" onClick={() => setProductsOpen(false)}>
+                    View All Pricing &rarr;
                   </Link>
                 </div>
               </div>
@@ -94,9 +103,8 @@ export default function Navigation() {
           </Link>
         </div>
 
-        {/* Right side: Cart + CTA */}
+        {/* Right side */}
         <div className="flex items-center gap-4">
-          {/* Cart icon */}
           <Link href="/cart" className="relative flex h-10 w-10 items-center justify-center rounded-lg transition hover:bg-white/5">
             <svg className="h-5 w-5 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -107,19 +115,10 @@ export default function Navigation() {
               </span>
             )}
           </Link>
-
-          <Link
-            href="/pricing"
-            className="hidden rounded-lg bg-prism-cyan px-5 py-2.5 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85 lg:block"
-          >
+          <Link href="/pricing" className="hidden rounded-lg bg-prism-cyan px-5 py-2.5 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85 lg:block">
             Get the Suite
           </Link>
-
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex h-10 w-10 items-center justify-center lg:hidden"
-          >
+          <button onClick={() => setMobileOpen(!mobileOpen)} className="flex h-10 w-10 items-center justify-center lg:hidden">
             <div className="space-y-1.5">
               <div className={`h-0.5 w-5 bg-white transition ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`} />
               <div className={`h-0.5 w-5 bg-white transition ${mobileOpen ? 'opacity-0' : ''}`} />
@@ -131,14 +130,17 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="border-t border-white/5 bg-[#14152E]/98 p-6 backdrop-blur-xl lg:hidden">
-          {collections.map((col) => (
-            <Link
-              key={col.id}
-              href={`/collections/${col.id}`}
-              onClick={() => setMobileOpen(false)}
-              className="flex items-center gap-3 rounded-lg p-3 transition hover:bg-white/5"
-            >
+        <div className="border-t border-white/5 bg-[#14152E]/98 p-6 backdrop-blur-xl lg:hidden max-h-[80vh] overflow-y-auto">
+          <div className="mb-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40">Effects & Synths</div>
+          {effectsSynthsCollections.map((col) => (
+            <Link key={col.id} href={`/collections/${col.id}`} onClick={() => setMobileOpen(false)} className="flex items-center gap-3 rounded-lg p-3 transition hover:bg-white/5">
+              <div className={`h-7 w-7 rounded bg-gradient-to-br ${col.gradient} opacity-80`} />
+              <span className="text-[15px] text-white/80">{col.name}</span>
+            </Link>
+          ))}
+          <div className="mt-4 mb-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-white/40">World Instruments</div>
+          {worldCollections.map((col) => (
+            <Link key={col.id} href={`/collections/${col.id}`} onClick={() => setMobileOpen(false)} className="flex items-center gap-3 rounded-lg p-3 transition hover:bg-white/5">
               <div className={`h-7 w-7 rounded bg-gradient-to-br ${col.gradient} opacity-80`} />
               <span className="text-[15px] text-white/80">{col.name}</span>
             </Link>
@@ -150,11 +152,7 @@ export default function Navigation() {
               Cart {itemCount > 0 && <span className="ml-1 text-prism-cyan">({itemCount})</span>}
             </Link>
           </div>
-          <Link
-            href="/pricing"
-            onClick={() => setMobileOpen(false)}
-            className="mt-4 block rounded-lg bg-prism-cyan px-5 py-3 text-center text-[14px] font-semibold text-[#14152E]"
-          >
+          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="mt-4 block rounded-lg bg-prism-cyan px-5 py-3 text-center text-[14px] font-semibold text-[#14152E]">
             Get the Suite
           </Link>
         </div>

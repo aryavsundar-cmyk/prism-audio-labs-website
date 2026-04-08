@@ -6,7 +6,6 @@ import AddCollectionButton from './AddCollectionButton';
 
 export default function CollectionSection({ collection }: { collection: Collection }) {
   const isElements = collection.id === 'elements';
-  const isWorld = collection.id === 'world';
   const isDragonbreath = collection.id === 'dragonbreath';
   const isCosmos = collection.id === 'cosmos';
 
@@ -15,15 +14,6 @@ export default function CollectionSection({ collection }: { collection: Collecti
         element: el,
         plugins: collection.plugins.filter((p) => p.element === el),
       }))
-    : null;
-
-  const worldRegions = isWorld
-    ? [
-        { name: 'Raga Collection', subtitle: 'South Asian Traditions', plugins: collection.plugins.filter(p => ['prism-tabla', 'prism-bansuri', 'prism-sarangi', 'prism-santoor'].includes(p.id)) },
-        { name: 'Horizons Collection', subtitle: 'Middle Eastern & Persian', plugins: collection.plugins.filter(p => ['prism-oud', 'prism-ney', 'prism-kamancheh', 'prism-daf'].includes(p.id)) },
-        { name: 'Griot Collection', subtitle: 'West African Heritage', plugins: collection.plugins.filter(p => ['prism-kora', 'prism-balafon', 'prism-dundun', 'prism-mbira'].includes(p.id)) },
-        { name: 'Crossroads Collection', subtitle: 'Global Intersections', plugins: collection.plugins.filter(p => ['prism-berimbau', 'prism-charango', 'prism-gamelan', 'prism-morin-khuur'].includes(p.id)) },
-      ]
     : null;
 
   const elementMeta: Record<string, { color: string; desc: string; svg: React.ReactNode }> = {
@@ -53,10 +43,9 @@ export default function CollectionSection({ collection }: { collection: Collecti
     <section className="relative py-16">
       <div className="mx-auto max-w-7xl px-6">
 
-        {/* ── Dragonbreath ── */}
+        {/* Dragonbreath */}
         {isDragonbreath && (
           <div className="space-y-8">
-            {/* Flagship highlight — compact */}
             <div className="rounded-2xl border border-orange-500/[0.08] bg-[#14152E] p-8 md:p-10">
               <div className="flex flex-col gap-6 md:flex-row md:items-start">
                 <div className="flex-1">
@@ -71,7 +60,6 @@ export default function CollectionSection({ collection }: { collection: Collecti
                     <span className="rounded-full bg-amber-500/[0.08] px-3 py-1 text-xs text-amber-300/80">Preset Morphing</span>
                   </div>
                 </div>
-                {/* Minimal pedal visual */}
                 <div className="flex h-48 w-32 shrink-0 items-center justify-center">
                   <div className="relative h-40 w-24 rounded-xl border border-orange-500/15 bg-gradient-to-b from-[#14080099] to-[#0A050099]">
                     <div className="flex justify-center gap-4 pt-5">
@@ -91,8 +79,6 @@ export default function CollectionSection({ collection }: { collection: Collecti
                 </div>
               </div>
             </div>
-
-            {/* Plugin grid */}
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {collection.plugins.map((plugin) => (
                 <PluginCard key={plugin.id} plugin={plugin} collectionGlow="hover:glow-dragon" />
@@ -101,7 +87,7 @@ export default function CollectionSection({ collection }: { collection: Collecti
           </div>
         )}
 
-        {/* ── Elements ── */}
+        {/* Elements */}
         {isElements && elementGroups && (
           <div className="space-y-20">
             {elementGroups.map(({ element, plugins }) => {
@@ -128,10 +114,9 @@ export default function CollectionSection({ collection }: { collection: Collecti
           </div>
         )}
 
-        {/* ── Cosmos ── */}
+        {/* Cosmos */}
         {isCosmos && (
           <div className="space-y-8">
-            {/* Intro */}
             <div className="rounded-2xl border border-purple-500/[0.08] bg-[#14152E99] p-8">
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-400/50">The Collection</span>
               <h3 className="mt-1 text-2xl font-bold text-gradient-cosmos">Synthesizers & Celestial Effects</h3>
@@ -139,7 +124,6 @@ export default function CollectionSection({ collection }: { collection: Collecti
                 From blazing supersaw leads to the frozen silence of deep space. Vintage keys reimagined through a cosmic lens.
               </p>
             </div>
-
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
               {collection.plugins.map((plugin) => (
                 <PluginCard key={plugin.id} plugin={plugin} collectionGlow="hover:glow-cosmos" />
@@ -148,29 +132,30 @@ export default function CollectionSection({ collection }: { collection: Collecti
           </div>
         )}
 
-        {/* ── World ── */}
-        {isWorld && worldRegions && (
-          <div className="space-y-20">
-            {worldRegions.map((region) => (
-              <div key={region.name}>
-                <div className="mb-8">
-                  <div className="mb-2 flex items-center gap-2">
-                    <div className="h-1 w-6 rounded-full bg-gradient-to-r from-amber-500 to-indigo-500" />
-                    <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">{region.subtitle}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold text-gradient-world">{region.name}</h3>
-                </div>
-                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                  {region.plugins.map((plugin) => (
-                    <PluginCard key={plugin.id} plugin={plugin} collectionGlow="hover:glow-world" />
-                  ))}
-                </div>
+        {/* World Instrument Collections (generic layout) */}
+        {collection.group === 'world' && (
+          <div className="space-y-8">
+            <div className={`rounded-2xl border border-white/[0.06] bg-[#14152E99] p-8`}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`h-1 w-10 rounded-full bg-gradient-to-r ${collection.gradient}`} />
+                {collection.region && (
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">{collection.region}</span>
+                )}
               </div>
-            ))}
+              <h3 className={`text-2xl font-bold ${collection.textGradientClass}`}>{collection.subtitle}</h3>
+              <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
+                {collection.description}
+              </p>
+            </div>
+            <div className={`grid gap-5 sm:grid-cols-2 ${collection.plugins.length > 3 ? 'lg:grid-cols-3' : `lg:grid-cols-${collection.plugins.length}`}`}>
+              {collection.plugins.map((plugin) => (
+                <PluginCard key={plugin.id} plugin={plugin} collectionGlow={`hover:${collection.glowClass}`} />
+              ))}
+            </div>
           </div>
         )}
 
-        {/* ── Collection CTA ── */}
+        {/* Collection CTA */}
         <div className="mt-16 flex flex-col items-center justify-between gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.015] p-8 md:flex-row">
           <div>
             <h4 className="text-lg font-semibold text-slate-200">Get the {collection.name} Collection</h4>

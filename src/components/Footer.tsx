@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { collections } from '@/data/plugins';
+import { effectsSynthsCollections, worldCollections } from '@/data/plugins';
 
 export default function Footer() {
   return (
@@ -30,21 +30,29 @@ export default function Footer() {
               </div>
             </div>
             <p className="mt-4 text-sm leading-relaxed text-white/55">
-              Professional audio plugins crafted with analog soul and digital precision. Four collections, fifty plugins, infinite possibilities.
+              Professional audio plugins crafted with analog soul, digital precision, and deep cultural respect. Fourteen collections, infinite possibilities.
             </p>
           </div>
 
           {/* Collections */}
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Collections</h4>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Effects & Synths</h4>
             <div className="space-y-2">
-              {collections.map((col) => (
+              {effectsSynthsCollections.map((col) => (
+                <Link key={col.id} href={`/collections/${col.id}`} className="block text-sm text-white/60 transition hover:text-white">
+                  {col.name}
+                </Link>
+              ))}
+            </div>
+            <h4 className="mt-6 mb-3 text-xs font-semibold uppercase tracking-widest text-white/50">World Instruments</h4>
+            <div className="space-y-2">
+              {worldCollections.slice(0, 6).map((col) => (
                 <Link key={col.id} href={`/collections/${col.id}`} className="block text-sm text-white/60 transition hover:text-white">
                   {col.name}
                 </Link>
               ))}
               <Link href="/pricing" className="block text-sm text-prism-cyan transition hover:text-prism-cyan/80">
-                Complete Suite
+                View All Collections &rarr;
               </Link>
             </div>
           </div>

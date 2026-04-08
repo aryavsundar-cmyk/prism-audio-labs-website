@@ -86,6 +86,17 @@ p {
 .glow-cosmos { box-shadow: 0 0 20px rgba(124,58,237,0.06); }
 .glow-world { box-shadow: 0 0 20px rgba(217,119,6,0.06); }
 .glow-elements { box-shadow: 0 0 20px rgba(14,165,233,0.06); }
+.glow-griot { box-shadow: 0 0 20px rgba(202,138,4,0.06); }
+.glow-raga { box-shadow: 0 0 20px rgba(217,119,6,0.06); }
+.glow-crossroads { box-shadow: 0 0 20px rgba(13,148,136,0.06); }
+.glow-horizons { box-shadow: 0 0 20px rgba(217,119,6,0.06); }
+.glow-fjord { box-shadow: 0 0 20px rgba(123,184,212,0.06); }
+.glow-ceol { box-shadow: 0 0 20px rgba(45,122,79,0.06); }
+.glow-fuego { box-shadow: 0 0 20px rgba(196,30,58,0.06); }
+.glow-tengri { box-shadow: 0 0 20px rgba(178,34,34,0.06); }
+.glow-terra { box-shadow: 0 0 20px rgba(204,119,34,0.06); }
+.glow-selva { box-shadow: 0 0 20px rgba(41,171,135,0.06); }
+.glow-warpath { box-shadow: 0 0 20px rgba(139,0,0,0.06); }
 
 @keyframes borderGlow { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
 .animated-border {
@@ -109,6 +120,17 @@ p {
 .text-gradient-cosmos { background:linear-gradient(135deg,#9B6EF7,#5B9BF7,#F06CB8); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .text-gradient-world { background:linear-gradient(135deg,#E5A030,#E06838,#6B64F0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 .text-gradient-elements { background:linear-gradient(135deg,#38BDF8,#F27830,#10B981,#A0B0C0); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-griot { background:linear-gradient(135deg,#EAB308,#CA8A04,#F59E0B); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-raga { background:linear-gradient(135deg,#F59E0B,#EA580C,#DC2626); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-crossroads { background:linear-gradient(135deg,#14B8A6,#0D9488,#0EA5E9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-horizons { background:linear-gradient(135deg,#F59E0B,#EA580C,#E879F9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-fjord { background:linear-gradient(135deg,#7DD3FC,#93C5FD,#CBD5E1); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-ceol { background:linear-gradient(135deg,#4ADE80,#2D7A4F,#A3E635); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-fuego { background:linear-gradient(135deg,#FB7185,#C41E3A,#F59E0B); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-tengri { background:linear-gradient(135deg,#F87171,#B22222,#FBBF24); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-terra { background:linear-gradient(135deg,#F59E0B,#CC7722,#EA580C); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-selva { background:linear-gradient(135deg,#2DD4BF,#29AB87,#4ADE80); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.text-gradient-warpath { background:linear-gradient(135deg,#EF4444,#8B0000,#F59E0B); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
 
 @keyframes cartBounce { 0%,100%{transform:scale(1)} 50%{transform:scale(1.25)} }
 .cart-bounce { animation: cartBounce 0.3s ease; }
