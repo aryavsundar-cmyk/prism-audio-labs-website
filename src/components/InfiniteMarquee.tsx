@@ -11,7 +11,7 @@ export default function InfiniteMarquee() {
   return (
     <section className="py-20 border-t border-white/[0.04] overflow-hidden">
       <div className="mx-auto max-w-7xl px-6 text-center mb-12">
-        <h2 className="text-4xl font-bold text-white">46 Professional Plugins</h2>
+        <h2 className="text-4xl font-bold text-white">{allImages.length} Professional Plugins</h2>
         <p className="mt-3 text-base text-slate-400">Every interface designed with purpose</p>
       </div>
 
