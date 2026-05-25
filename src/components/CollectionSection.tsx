@@ -1,8 +1,5 @@
-'use client';
-
 import { Collection } from '@/data/plugins';
 import PluginCard from './PluginCard';
-import AddCollectionButton from './AddCollectionButton';
 
 export default function CollectionSection({ collection }: { collection: Collection }) {
   const isElements = collection.id === 'elements';
@@ -158,13 +155,12 @@ export default function CollectionSection({ collection }: { collection: Collecti
         {/* Collection CTA */}
         <div className="mt-16 flex flex-col items-center justify-between gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.015] p-8 md:flex-row">
           <div>
-            <h4 className="text-lg font-semibold text-slate-200">Get the {collection.name} Collection</h4>
-            <p className="mt-1 text-sm text-slate-400">{collection.plugins.length} plugins. One price.</p>
+            <h4 className="text-lg font-semibold text-slate-200">{collection.name} Collection</h4>
+            <p className="mt-1 text-sm text-slate-400">{collection.plugins.length} plugins &mdash; coming 2026.</p>
           </div>
-          <div className="flex items-center gap-5">
-            <span className="text-2xl font-bold text-slate-200">${collection.price}</span>
-            <AddCollectionButton collection={collection} />
-          </div>
+          <a href="/#waitlist" className="rounded-xl bg-prism-cyan px-7 py-3 text-sm font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+            Join Waitlist
+          </a>
         </div>
       </div>
     </section>

@@ -2,7 +2,6 @@ import { collections, getCollectionById, completeSuitePrice } from '@/data/plugi
 import { notFound } from 'next/navigation';
 import CollectionSection from '@/components/CollectionSection';
 import Link from 'next/link';
-import AddCollectionButton from '@/components/AddCollectionButton';
 
 export function generateStaticParams() {
   return collections.map((col) => ({ id: col.id }));
@@ -37,12 +36,14 @@ export default async function CollectionPage({ params }: { params: Promise<{ id:
               {collection.longDescription}
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-5">
-              <div className="flex items-baseline gap-2">
-                <span className="text-3xl font-bold text-slate-200">${collection.price}</span>
-                <span className="text-sm text-slate-400">collection</span>
+              <div className="inline-flex items-center gap-2 rounded-full border border-prism-cyan/20 bg-prism-cyan/[0.06] px-5 py-2">
+                <div className="h-1.5 w-1.5 rounded-full bg-prism-cyan animate-pulse-glow" />
+                <span className="text-sm font-medium text-prism-cyan">Coming 2026</span>
               </div>
               <span className="text-sm text-slate-400">{collection.plugins.length} plugins</span>
-              <AddCollectionButton collection={collection} />
+              <a href="/#waitlist" className="rounded-xl bg-prism-cyan px-6 py-2.5 text-sm font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                Join Waitlist
+              </a>
             </div>
           </div>
         </div>
@@ -74,11 +75,11 @@ export default async function CollectionPage({ params }: { params: Promise<{ id:
             <div className="mt-10 rounded-2xl border border-prism-violet/[0.1] bg-prism-navy/30 p-8 flex flex-col sm:flex-row items-center justify-between gap-5">
               <div>
                 <h3 className="text-lg font-semibold text-slate-200">Want it all?</h3>
-                <p className="mt-1 text-sm text-slate-400">Every plugin across all {collections.length} collections.</p>
+                <p className="mt-1 text-sm text-slate-400">Every plugin across all {collections.length} collections &mdash; coming 2026.</p>
               </div>
-              <Link href="/pricing" className="shrink-0 rounded-xl bg-prism-cyan px-7 py-3 text-sm font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
-                Complete Suite &mdash; ${completeSuitePrice}
-              </Link>
+              <a href="/#waitlist" className="shrink-0 rounded-xl bg-prism-cyan px-7 py-3 text-sm font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                Join Waitlist
+              </a>
             </div>
           </div>
         </section>

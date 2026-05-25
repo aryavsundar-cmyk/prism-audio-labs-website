@@ -1,8 +1,5 @@
-'use client';
-
 import Image from 'next/image';
 import { Plugin, getPluginImage } from '@/data/plugins';
-import { useCart } from '@/context/CartContext';
 import Link from 'next/link';
 
 interface PluginCardProps {
@@ -11,8 +8,6 @@ interface PluginCardProps {
 }
 
 export default function PluginCard({ plugin, collectionGlow }: PluginCardProps) {
-  const { addPlugin, isInCart } = useCart();
-  const inCart = isInCart(plugin.id) || isInCart(`collection-${plugin.collection}`) || isInCart('complete-suite');
   const imageSrc = getPluginImage(plugin.id);
 
   return (
@@ -49,19 +44,12 @@ export default function PluginCard({ plugin, collectionGlow }: PluginCardProps) 
           {plugin.description}
         </p>
 
-        {/* Price + Cart */}
+        {/* Coming Soon */}
         <div className="mt-4 flex items-center justify-between pt-3 border-t border-white/[0.05]">
-          <span className="text-lg font-bold text-slate-100">${plugin.price}</span>
-          <button
-            onClick={() => { if (!inCart) addPlugin(plugin); }}
-            className={`rounded-lg px-3.5 py-1.5 text-[12px] font-semibold transition ${
-              inCart
-                ? 'bg-prism-cyan/10 text-prism-cyan'
-                : 'bg-white/[0.06] text-slate-300 hover:bg-white/[0.1]'
-            }`}
-          >
-            {inCart ? 'Added' : 'Add to Cart'}
-          </button>
+          <span className="rounded-full bg-prism-cyan/[0.08] px-2.5 py-0.5 text-[11px] font-medium text-prism-cyan/80">Coming Soon</span>
+          <Link href={`/plugins/${plugin.id}`} className="text-[12px] text-slate-400 transition hover:text-slate-300">
+            Learn more &rarr;
+          </Link>
         </div>
       </div>
     </div>

@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { collections, getPluginById, getPluginImage } from '@/data/plugins';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import AddPluginButton from '@/components/AddPluginButton';
 
 export function generateStaticParams() {
   return collections.flatMap((col) =>
@@ -144,13 +143,15 @@ export default async function PluginPage({ params }: { params: Promise<{ id: str
 
               <p className="mt-6 text-base leading-relaxed text-white/65">{plugin.description}</p>
 
-              {/* Price + CTA */}
+              {/* Coming Soon */}
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <span className="text-[36px] font-bold text-white/90">${plugin.price}</span>
-                <AddPluginButton plugin={plugin} />
-                <Link href="/cart" className="rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3 text-[14px] font-medium text-white/65 transition hover:bg-white/5 hover:text-white">
-                  View Cart
-                </Link>
+                <div className="inline-flex items-center gap-2 rounded-full border border-prism-cyan/20 bg-prism-cyan/[0.06] px-5 py-2.5">
+                  <div className="h-1.5 w-1.5 rounded-full bg-prism-cyan animate-pulse-glow" />
+                  <span className="text-sm font-medium text-prism-cyan">Coming 2026</span>
+                </div>
+                <a href="/#waitlist" className="rounded-xl bg-prism-cyan px-6 py-3 text-[14px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                  Join Waitlist
+                </a>
               </div>
 
               {/* Part of collection */}
@@ -223,7 +224,7 @@ export default async function PluginPage({ params }: { params: Promise<{ id: str
                 { label: 'Collection', value: collection.name },
                 { label: 'Formats', value: plugin.formats.join(', ') },
                 { label: 'Platform', value: 'macOS 11+ (Intel & Apple Silicon)' },
-                { label: 'Price', value: `$${plugin.price}` },
+                { label: 'Availability', value: 'Coming 2026' },
               ].map((spec) => (
                 <div key={spec.label} className="flex items-center justify-between px-6 py-4">
                   <span className="text-sm text-white/65">{spec.label}</span>
@@ -267,7 +268,7 @@ export default async function PluginPage({ params }: { params: Promise<{ id: str
                         <h3 className="font-bold text-white">{rp.name}</h3>
                         <p className="mt-1 text-sm" style={{ color: rp.accentColor }}>{rp.tagline}</p>
                         <div className="mt-3 flex items-center justify-between">
-                          <span className="text-lg font-bold text-white">${rp.price}</span>
+                          <span className="rounded-full bg-prism-cyan/[0.08] px-2.5 py-0.5 text-[11px] font-medium text-prism-cyan/80">Coming Soon</span>
                           <span className="text-xs text-white/65 transition group-hover:text-white/65">View →</span>
                         </div>
                       </div>
@@ -285,15 +286,17 @@ export default async function PluginPage({ params }: { params: Promise<{ id: str
         <div className="mx-auto max-w-7xl px-6">
           <div className={`rounded-3xl border border-white/5 bg-gradient-to-br ${plugin.gradient} p-px`}>
             <div className="rounded-[23px] bg-[#14152E] p-12 text-center">
-              <h2 className="text-3xl font-bold text-white">Get {plugin.name}</h2>
-              <p className="mt-2 text-white/65">Or save with the {collection.name} Collection.</p>
+              <h2 className="text-3xl font-bold text-white">{plugin.name}</h2>
+              <p className="mt-2 text-white/65">Part of the {collection.name} Collection &mdash; coming 2026.</p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-                <AddPluginButton plugin={plugin} />
+                <a href="/#waitlist" className="rounded-xl bg-prism-cyan px-8 py-3 text-[14px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                  Join the Waitlist
+                </a>
                 <Link
                   href={`/collections/${collection.id}`}
                   className="rounded-xl border border-white/10 bg-white/[0.03] px-8 py-3 text-[14px] font-medium text-white/65 transition hover:bg-white/5 hover:text-white"
                 >
-                  Get Collection — ${collection.price}
+                  View Collection
                 </Link>
               </div>
             </div>

@@ -1,12 +1,7 @@
-'use client';
-
 import { collections, totalPluginCount, completeSuitePrice, effectsSynthsCollections, worldCollections } from '@/data/plugins';
-import { useCart } from '@/context/CartContext';
 import Link from 'next/link';
 
 export default function PricingPage() {
-  const { addCollection, addSuite, isInCart } = useCart();
-
   const individualTotal = collections.reduce((sum, c) => sum + c.price, 0);
   const savings = individualTotal - completeSuitePrice;
 
@@ -15,8 +10,12 @@ export default function PricingPage() {
       {/* Header */}
       <section className="pb-16">
         <div className="mx-auto max-w-7xl px-6 text-center">
-          <h1 className="text-4xl font-bold text-white">Choose Your Path</h1>
-          <p className="mt-3 text-base text-slate-400">Individual collections or the complete suite.</p>
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-prism-cyan/20 bg-prism-cyan/[0.06] px-5 py-2">
+            <div className="h-1.5 w-1.5 rounded-full bg-prism-cyan animate-pulse-glow" />
+            <span className="text-sm font-medium text-prism-cyan">Coming 2026</span>
+          </div>
+          <h1 className="text-4xl font-bold text-white">Preview Pricing</h1>
+          <p className="mt-3 text-base text-slate-400">Individual collections or the complete suite. Prices shown are planned launch pricing.</p>
         </div>
       </section>
 
@@ -43,16 +42,9 @@ export default function PricingPage() {
                 <div className="text-4xl font-bold text-prism-cyan">${completeSuitePrice}</div>
                 <div className="mt-1 text-sm text-slate-400 line-through">${individualTotal}</div>
                 <div className="mt-1 text-sm text-prism-cyan/60">Save ${savings}</div>
-                <button
-                  onClick={() => { if (!isInCart('complete-suite')) addSuite(); }}
-                  className={`mt-4 rounded-xl px-8 py-3 text-sm font-bold transition ${
-                    isInCart('complete-suite')
-                      ? 'bg-prism-cyan/10 text-prism-cyan'
-                      : 'bg-prism-cyan text-[#14152E] hover:bg-prism-cyan/85'
-                  }`}
-                >
-                  {isInCart('complete-suite') ? 'In Cart' : 'Add to Cart'}
-                </button>
+                <a href="/#waitlist" className="mt-4 inline-block rounded-xl bg-prism-cyan px-8 py-3 text-sm font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                  Join Waitlist
+                </a>
               </div>
             </div>
           </div>
@@ -64,9 +56,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h3 className="mb-6 text-lg font-semibold text-slate-300">Effects & Synthesis</h3>
           <div className="grid gap-6 sm:grid-cols-3">
-            {effectsSynthsCollections.map((col) => {
-              const inCart = isInCart(`collection-${col.id}`) || isInCart('complete-suite');
-              return (
+            {effectsSynthsCollections.map((col) => (
                 <div key={col.id} className="rounded-2xl border border-white/[0.06] bg-[#14152E] p-8">
                   <div className={`mb-5 h-1 w-12 rounded-full bg-gradient-to-r ${col.gradient}`} />
                   <h4 className="text-xl font-bold text-slate-200">{col.name}</h4>
@@ -74,21 +64,13 @@ export default function PricingPage() {
                   <p className="mt-3 text-sm leading-relaxed text-slate-400">{col.description}</p>
                   <div className="mt-6 flex items-center justify-between">
                     <span className="text-2xl font-bold text-slate-200">${col.price}</span>
-                    <button
-                      onClick={() => { if (!inCart) addCollection(col); }}
-                      className={`rounded-lg px-5 py-2 text-sm font-semibold transition ${
-                        inCart ? 'bg-prism-cyan/10 text-prism-cyan' : 'bg-white/[0.06] text-slate-300 hover:bg-white/[0.1]'
-                      }`}
-                    >
-                      {inCart ? 'In Cart' : 'Add to Cart'}
-                    </button>
+                    <span className="rounded-full bg-prism-cyan/[0.08] px-4 py-1.5 text-xs font-medium text-prism-cyan/80">Coming Soon</span>
                   </div>
                   <Link href={`/collections/${col.id}`} className="mt-4 block text-sm text-slate-400 transition hover:text-slate-300">
                     View all plugins &rarr;
                   </Link>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>
@@ -98,9 +80,7 @@ export default function PricingPage() {
         <div className="mx-auto max-w-7xl px-6">
           <h3 className="mb-6 text-lg font-semibold text-slate-300">World Instruments</h3>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {worldCollections.map((col) => {
-              const inCart = isInCart(`collection-${col.id}`) || isInCart('complete-suite');
-              return (
+            {worldCollections.map((col) => (
                 <div key={col.id} className="rounded-2xl border border-white/[0.06] bg-[#14152E] p-6">
                   <div className={`mb-4 h-1 w-10 rounded-full bg-gradient-to-r ${col.gradient}`} />
                   <h4 className="text-lg font-bold text-slate-200">{col.name}</h4>
@@ -108,21 +88,13 @@ export default function PricingPage() {
                   <p className="mt-2 text-sm leading-relaxed text-slate-400 line-clamp-2">{col.description}</p>
                   <div className="mt-4 flex items-center justify-between">
                     <span className="text-xl font-bold text-slate-200">${col.price}</span>
-                    <button
-                      onClick={() => { if (!inCart) addCollection(col); }}
-                      className={`rounded-lg px-4 py-1.5 text-xs font-semibold transition ${
-                        inCart ? 'bg-prism-cyan/10 text-prism-cyan' : 'bg-white/[0.06] text-slate-300 hover:bg-white/[0.1]'
-                      }`}
-                    >
-                      {inCart ? 'In Cart' : 'Add'}
-                    </button>
+                    <span className="rounded-full bg-prism-cyan/[0.08] px-3 py-1 text-[11px] font-medium text-prism-cyan/80">Coming Soon</span>
                   </div>
                   <Link href={`/collections/${col.id}`} className="mt-3 block text-xs text-slate-400 transition hover:text-slate-300">
                     View plugins &rarr;
                   </Link>
                 </div>
-              );
-            })}
+            ))}
           </div>
         </div>
       </section>

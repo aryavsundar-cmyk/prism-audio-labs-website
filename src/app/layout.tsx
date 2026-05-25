@@ -3,7 +3,6 @@ import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { CartProvider } from "@/context/CartContext";
 
 const inter = Inter({
   variable: "--font-geist-sans",
@@ -32,11 +31,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased grain`}
       >
-        <CartProvider>
-          <Navigation />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </CartProvider>
+        <Navigation />
+        <main className="min-h-screen">{children}</main>
+        <Footer />
       </body>
     </html>
   );

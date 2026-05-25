@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { collections, totalPluginCount, completeSuitePrice, getPluginImage, effectsSynthsCollections, worldCollections } from '@/data/plugins';
+import { collections, totalPluginCount, getPluginImage, effectsSynthsCollections, worldCollections } from '@/data/plugins';
 import Link from 'next/link';
 import InfiniteMarquee from '@/components/InfiniteMarquee';
 
@@ -47,10 +47,14 @@ export default function Home() {
             {totalPluginCount} instruments and effects forged at the intersection of
             analog circuitry, spectral synthesis, and world musical heritage. {collections.length} collections. No boundaries.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link href="/pricing" className="rounded-xl bg-prism-cyan px-8 py-3.5 text-[15px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
-              Get the Complete Suite &mdash; ${completeSuitePrice}
-            </Link>
+          <div className="mt-6 inline-flex items-center gap-2 rounded-full border border-prism-cyan/20 bg-prism-cyan/[0.06] px-5 py-2">
+            <div className="h-1.5 w-1.5 rounded-full bg-prism-cyan animate-pulse-glow" />
+            <span className="text-sm font-medium text-prism-cyan">Coming 2026</span>
+          </div>
+          <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <a href="#waitlist" className="rounded-xl bg-prism-cyan px-8 py-3.5 text-[15px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+              Join the Waitlist
+            </a>
             <Link href="/collections/dragonbreath" className="rounded-xl border border-white/[0.08] px-8 py-3.5 text-[15px] text-slate-400 transition hover:border-white/15 hover:text-white">
               Explore Collections
             </Link>
@@ -105,11 +109,8 @@ export default function Home() {
                     <p className="mt-1 text-sm text-slate-400">{col.subtitle}</p>
                     <p className="mt-4 text-[15px] leading-relaxed text-slate-400">{col.description}</p>
                     <div className="mt-8 flex items-center justify-between">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-2xl font-bold text-slate-200">${col.price}</span>
-                        <span className="text-xs text-slate-400">{col.plugins.length} plugins</span>
-                      </div>
-                      <span className="text-sm text-slate-400 transition group-hover:text-slate-300">Explore &rarr;</span>
+                      <span className="rounded-full bg-prism-cyan/[0.08] px-3 py-1 text-xs font-medium text-prism-cyan/80">Coming Soon</span>
+                      <span className="text-xs text-slate-400">{col.plugins.length} plugins</span>
                     </div>
                   </div>
                 </Link>
@@ -147,11 +148,8 @@ export default function Home() {
                     <h3 className={`text-lg font-bold ${col.textGradientClass}`}>{col.name}</h3>
                     <p className="mt-0.5 text-xs text-slate-400">{col.subtitle}</p>
                     <div className="mt-4 flex items-center justify-between">
-                      <div className="flex items-baseline gap-2">
-                        <span className="text-lg font-bold text-slate-200">${col.price}</span>
-                        <span className="text-[11px] text-slate-400">{col.plugins.length} plugins</span>
-                      </div>
-                      <span className="text-xs text-slate-400 transition group-hover:text-slate-300">Explore &rarr;</span>
+                      <span className="rounded-full bg-prism-cyan/[0.08] px-2.5 py-0.5 text-[11px] font-medium text-prism-cyan/80">Coming Soon</span>
+                      <span className="text-[11px] text-slate-400">{col.plugins.length} plugins</span>
                     </div>
                   </div>
                 </Link>
@@ -186,7 +184,7 @@ export default function Home() {
                       <h3 className="text-[15px] font-semibold text-slate-200">{p.name}</h3>
                       <p className="mt-0.5 text-sm" style={{ color: p.accentColor }}>{p.tagline}</p>
                       <div className="mt-4 flex items-center justify-between">
-                        <span className="text-base font-bold text-slate-200">${p.price}</span>
+                        <span className="rounded-full bg-prism-cyan/[0.08] px-2.5 py-0.5 text-[11px] font-medium text-prism-cyan/80">Coming Soon</span>
                         <span className="text-xs text-slate-400 transition group-hover:text-slate-300">View &rarr;</span>
                       </div>
                     </div>
@@ -231,15 +229,15 @@ export default function Home() {
                 <Link href="/plugins/dragonbreath-pedal" className="rounded-xl bg-gradient-to-r from-orange-600 to-red-600 px-7 py-3 text-[15px] font-bold text-white transition hover:opacity-90">
                   View Dragonbreath
                 </Link>
-                <span className="text-2xl font-bold text-slate-200">$49</span>
+                <span className="rounded-full bg-orange-500/[0.1] px-4 py-1.5 text-sm font-medium text-orange-400">Coming Soon</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-32">
+      {/* WAITLIST SIGNUP */}
+      <section id="waitlist" className="py-32">
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[400px] w-[400px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-prism-violet/[0.05] blur-[120px]" />
           <div className="relative">
@@ -247,12 +245,21 @@ export default function Home() {
               The Signal Starts<br />
               <span className="text-gradient-prism">Here.</span>
             </h2>
-            <p className="mt-5 text-base text-slate-400">Shape the frequencies that shape the future.</p>
-            <div className="mt-8 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-              <Link href="/pricing" className="rounded-xl bg-prism-cyan px-8 py-3.5 text-[15px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
-                Get Started &mdash; ${completeSuitePrice}
-              </Link>
-              <span className="text-sm text-slate-400">30-day money-back guarantee</span>
+            <p className="mt-5 text-base text-slate-400">Be the first to know when our plugins launch.</p>
+            <div className="mt-10 mx-auto max-w-md">
+              {/* Placeholder waitlist form — replace with Mailchimp/ConvertKit embed */}
+              <form action="mailto:hello@prismaudiolabs.co" method="GET" className="flex gap-3">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  required
+                  className="flex-1 rounded-xl border border-white/[0.08] bg-white/[0.03] px-5 py-3.5 text-[15px] text-white placeholder-slate-500 outline-none transition focus:border-prism-cyan/30 focus:bg-white/[0.05]"
+                />
+                <button type="submit" className="shrink-0 rounded-xl bg-prism-cyan px-7 py-3.5 text-[15px] font-bold text-[#14152E] transition hover:bg-prism-cyan/85">
+                  Notify Me
+                </button>
+              </form>
+              <p className="mt-4 text-sm text-slate-400">No spam. Just a single email when we launch.</p>
             </div>
           </div>
         </div>

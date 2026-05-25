@@ -4,14 +4,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { effectsSynthsCollections, worldCollections } from '@/data/plugins';
-import { useCart } from '@/context/CartContext';
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const pathname = usePathname();
-  const { itemCount } = useCart();
-
   const isActive = (path: string) => pathname === path;
 
   return (
@@ -105,19 +102,9 @@ export default function Navigation() {
 
         {/* Right side */}
         <div className="flex items-center gap-4">
-          <Link href="/cart" className="relative flex h-10 w-10 items-center justify-center rounded-lg transition hover:bg-white/5">
-            <svg className="h-5 w-5 text-white/70" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
-            </svg>
-            {itemCount > 0 && (
-              <span className="cart-bounce absolute -right-0.5 -top-0.5 flex h-5 w-5 items-center justify-center rounded-full bg-prism-cyan text-[10px] font-bold text-[#14152E]">
-                {itemCount}
-              </span>
-            )}
-          </Link>
-          <Link href="/pricing" className="hidden rounded-lg bg-prism-cyan px-5 py-2.5 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85 lg:block">
-            Get the Suite
-          </Link>
+          <a href="/#waitlist" className="hidden rounded-lg bg-prism-cyan px-5 py-2.5 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85 lg:block">
+            Join Waitlist
+          </a>
           <button onClick={() => setMobileOpen(!mobileOpen)} className="flex h-10 w-10 items-center justify-center lg:hidden">
             <div className="space-y-1.5">
               <div className={`h-0.5 w-5 bg-white transition ${mobileOpen ? 'translate-y-2 rotate-45' : ''}`} />
@@ -148,13 +135,10 @@ export default function Navigation() {
           <div className="mt-4 border-t border-white/5 pt-4 space-y-1">
             <Link href="/pricing" onClick={() => setMobileOpen(false)} className="block p-3 text-[15px] text-white/70">Pricing</Link>
             <Link href="/about" onClick={() => setMobileOpen(false)} className="block p-3 text-[15px] text-white/70">About</Link>
-            <Link href="/cart" onClick={() => setMobileOpen(false)} className="block p-3 text-[15px] text-white/70">
-              Cart {itemCount > 0 && <span className="ml-1 text-prism-cyan">({itemCount})</span>}
-            </Link>
           </div>
-          <Link href="/pricing" onClick={() => setMobileOpen(false)} className="mt-4 block rounded-lg bg-prism-cyan px-5 py-3 text-center text-[14px] font-semibold text-[#14152E]">
-            Get the Suite
-          </Link>
+          <a href="/#waitlist" onClick={() => setMobileOpen(false)} className="mt-4 block rounded-lg bg-prism-cyan px-5 py-3 text-center text-[14px] font-semibold text-[#14152E]">
+            Join Waitlist
+          </a>
         </div>
       )}
     </nav>
