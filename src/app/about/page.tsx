@@ -1,6 +1,18 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { pluginImageMap } from '@/data/plugins';
+
+export const metadata: Metadata = {
+  title: 'About',
+  description:
+    'Prism Audio Labs crafts professional audio plugins at the intersection of analog circuitry, spectral synthesis, and world musical heritage. Coming 2026.',
+  openGraph: {
+    title: 'About — Prism Audio Labs',
+    description:
+      'Analog soul, digital precision. 74 instruments and effects across 14 collections, coming 2026.',
+  },
+};
 
 // 12 best MidJourney images for gallery
 const galleryPlugins = [
@@ -168,9 +180,9 @@ export default function AboutPage() {
             <h2 className="text-[24px] font-bold text-white/90">Get in Touch</h2>
             <p className="mt-3 text-[16px] text-white/55">Questions, feedback, or partnership inquiries — we&apos;d love to hear from you.</p>
             <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <span className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-6 py-3 text-[15px] font-mono text-white/65">support@prismaudiolabs.com</span>
-              <Link href="/pricing" className="rounded-xl bg-prism-cyan px-6 py-3 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85">
-                View Pricing
+              <span className="rounded-xl border border-white/[0.06] bg-white/[0.03] px-6 py-3 text-[15px] font-mono text-white/65">hello@prismaudiolabs.co</span>
+              <Link href="/#waitlist" className="rounded-xl bg-prism-cyan px-6 py-3 text-[14px] font-semibold text-[#14152E] transition hover:bg-prism-cyan/85">
+                Join the Waitlist
               </Link>
             </div>
           </div>

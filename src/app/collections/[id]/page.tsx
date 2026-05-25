@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import { collections, getCollectionById, completeSuitePrice } from '@/data/plugins';
 import { notFound } from 'next/navigation';
 import CollectionSection from '@/components/CollectionSection';
@@ -5,6 +6,21 @@ import Link from 'next/link';
 
 export function generateStaticParams() {
   return collections.map((col) => ({ id: col.id }));
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const collection = getCollectionById(id);
+  if (!collection) return { title: 'Collection Not Found' };
+
+  return {
+    title: `${collection.name} Collection`,
+    description: collection.longDescription.slice(0, 155) + '…',
+    openGraph: {
+      title: `${collection.name} — Prism Audio Labs`,
+      description: collection.description,
+    },
+  };
 }
 
 export default async function CollectionPage({ params }: { params: Promise<{ id: string }> }) {

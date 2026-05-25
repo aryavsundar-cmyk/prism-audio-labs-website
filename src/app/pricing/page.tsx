@@ -1,5 +1,17 @@
+import type { Metadata } from 'next';
 import { collections, totalPluginCount, completeSuitePrice, effectsSynthsCollections, worldCollections } from '@/data/plugins';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Pricing',
+  description:
+    'Preview launch pricing for all 14 Prism Audio Labs collections — effects, synthesizers, and world instruments. Coming 2026.',
+  openGraph: {
+    title: 'Pricing — Prism Audio Labs',
+    description:
+      'Preview pricing for 74 professional audio plugins across 14 collections. Individual collections or the complete suite.',
+  },
+};
 
 export default function PricingPage() {
   const individualTotal = collections.reduce((sum, c) => sum + c.price, 0);

@@ -69,20 +69,17 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Newsletter */}
+          {/* Waitlist */}
           <div>
-            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Stay Updated</h4>
-            <p className="mb-4 text-sm text-white/55">Get notified about new plugins, presets, and exclusive offers.</p>
-            <div className="flex gap-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 rounded-lg border border-white/10 bg-white/5 px-4 py-2 text-sm text-white placeholder:text-white/35 focus:border-prism-cyan/50 focus:outline-none"
-              />
-              <button className="rounded-lg bg-prism-cyan px-4 py-2 text-sm font-semibold text-[#14152E] transition hover:bg-prism-cyan/80">
-                Join
-              </button>
-            </div>
+            <h4 className="mb-4 text-xs font-semibold uppercase tracking-widest text-white/50">Coming 2026</h4>
+            <p className="mb-4 text-sm text-white/55">Be the first to know when our plugins launch.</p>
+            <Link
+              href="/#waitlist"
+              className="inline-block rounded-lg bg-prism-cyan px-5 py-2.5 text-sm font-semibold text-[#14152E] transition hover:bg-prism-cyan/80"
+            >
+              Join the Waitlist
+            </Link>
+            <p className="mt-3 text-xs text-white/35">hello@prismaudiolabs.co</p>
           </div>
         </div>
 

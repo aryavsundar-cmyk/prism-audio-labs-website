@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import { collections, getPluginById, getPluginImage } from '@/data/plugins';
 import Link from 'next/link';
@@ -7,6 +8,27 @@ export function generateStaticParams() {
   return collections.flatMap((col) =>
     col.plugins.map((plugin) => ({ id: plugin.id }))
   );
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ id: string }> }): Promise<Metadata> {
+  const { id } = await params;
+  const result = getPluginById(id);
+  if (!result) return { title: 'Plugin Not Found' };
+
+  const { plugin, collection } = result;
+  const image = getPluginImage(plugin.id);
+
+  return {
+    title: `${plugin.name} — ${collection.name}`,
+    description: plugin.tagline + '. ' + plugin.description.slice(0, 140) + '…',
+    openGraph: {
+      title: `${plugin.name} — Prism Audio Labs`,
+      description: plugin.tagline,
+      ...(image && {
+        images: [{ url: image, width: 1200, height: 630, alt: plugin.name }],
+      }),
+    },
+  };
 }
 
 export default async function PluginPage({ params }: { params: Promise<{ id: string }> }) {
