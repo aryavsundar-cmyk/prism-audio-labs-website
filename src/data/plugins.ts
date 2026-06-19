@@ -84,6 +84,11 @@ export const pluginImageMap: Record<string, string> = {
   'prism-sarangi': '/plugins/Sarangi.png',
   'prism-santoor': '/plugins/Santoor.png',
   'prism-sitar': '/plugins/Sitar.png',
+  'prism-dhol': '/plugins/Dhol.png',
+  'prism-dholak': '/plugins/Dholak.png',
+  'prism-mridangam': '/plugins/Mridangam.png',
+  'prism-harmonium': '/plugins/Harmonium.png',
+  'prism-been': '/plugins/Been.png',
   // Crossroads (MENA)
   'prism-oud': '/plugins/Oud.png',
   'prism-ney': '/plugins/Ney.png',
@@ -116,7 +121,7 @@ export const pluginImageMap: Record<string, string> = {
   'prism-pipa': '/plugins/Pipa.png',
   // Terra Australis (Pacific)
   'prism-didgeridoo': '/plugins/Didgeridoo.png',
-  'prism-putatara': '/plugins/Putatara.png',
+  'prism-clapsticks': '/plugins/Clapsticks.png',
   // Selva (South American)
   'prism-zampona': '/plugins/Zampona.png',
   'prism-ocarina': '/plugins/Ocarina.png',
@@ -781,6 +786,76 @@ const ragaPlugins: Plugin[] = [
     iconBg: 'bg-gradient-to-br from-orange-600/20 to-amber-500/20',
     accentColor: '#EA580C',
   },
+  {
+    id: 'prism-dhol',
+    name: 'Dhol',
+    tagline: 'Punjabi Thunder',
+    description: 'A large double-headed barrel drum — the rhythmic backbone of Bhangra and Punjabi folk music. The Dagga (bass head, played with a heavy curved stick) and Tilli (treble head, played with a thin stick) produce a loud, physically driving sound designed for outdoor celebration. MIDI-mapped across two octaves for independent head control, with AI percussion generation in traditional tala patterns.',
+    category: 'instrument',
+    collection: 'raga',
+    features: ['Dual head mapping', 'Dagga bounce model', 'AI tala patterns', 'Strike force dynamics', 'Bhangra presets'],
+    formats: ['VST3', 'AU'],
+    price: 29,
+    gradient: 'from-orange-700 via-red-500 to-amber-400',
+    iconBg: 'bg-gradient-to-br from-orange-700/20 to-red-500/20',
+    accentColor: '#C2410C',
+  },
+  {
+    id: 'prism-dholak',
+    name: 'Dholak',
+    tagline: 'Folk Heartbeat',
+    description: 'A two-headed hand drum central to Qawwali, Bollywood, and North Indian folk music. Lighter and more melodic than the dhol, played with hands rather than sticks. The bass head carries masala — a buzz paste that creates a characteristic sustaining rattle. Hand position and masala buzz amount are both controllable via MIDI CC, with AI-generated patterns in Teental, Dadra, and Keherwa talas.',
+    category: 'instrument',
+    collection: 'raga',
+    features: ['Masala buzz model', 'Hand position control', 'AI tala patterns', 'Qawwali presets', 'Velocity-mapped strokes'],
+    formats: ['VST3', 'AU'],
+    price: 29,
+    gradient: 'from-amber-700 via-orange-500 to-yellow-400',
+    iconBg: 'bg-gradient-to-br from-amber-700/20 to-orange-500/20',
+    accentColor: '#B45309',
+  },
+  {
+    id: 'prism-mridangam',
+    name: 'Mridangam',
+    tagline: 'Carnatic Precision',
+    description: 'The primary percussion of Carnatic classical music — a precision-tuned barrel drum whose right head (Karanai) is coated with a soru paste spot that produces near-harmonic membrane modes and a metallic, bell-like tone. The most refined percussive timbre in Indian classical music. The left head (Thoppi) produces a bendable bass tone. Uses Shruti22 microtuning with the right head tuned to Sa.',
+    category: 'instrument',
+    collection: 'raga',
+    features: ['Soru paste resonance', 'Shruti22 microtuning', 'Karanai/Thoppi mapping', 'Bharatanatyam presets', 'AI tala patterns'],
+    formats: ['VST3', 'AU'],
+    price: 29,
+    gradient: 'from-red-700 via-rose-500 to-orange-400',
+    iconBg: 'bg-gradient-to-br from-red-700/20 to-rose-500/20',
+    accentColor: '#B91C1C',
+  },
+  {
+    id: 'prism-harmonium',
+    name: 'Harmonium',
+    tagline: 'Devotional Reed Organ',
+    description: 'A pump-bellows keyboard reed organ adopted across the Indian subcontinent for devotional music, Qawwali, bhajan, kirtan, and Bollywood film songs. Continuous bellows air pressure drives free metal reeds, producing a warm, reedy sustain. Fully chromatic with optional Shruti22 microtuning. A built-in drone layer adds sustained Sa+Pa (tonic+fifth) beneath the melody — the characteristic sound of temple music and Nusrat Fateh Ali Khan recordings.',
+    category: 'instrument',
+    collection: 'raga',
+    features: ['Bellows pressure model', 'Reed type selection', 'Drone layer', 'Shruti22 mode', 'Qawwali presets'],
+    formats: ['VST3', 'AU'],
+    price: 29,
+    gradient: 'from-rose-700 via-pink-500 to-amber-400',
+    iconBg: 'bg-gradient-to-br from-rose-700/20 to-pink-500/20',
+    accentColor: '#BE123C',
+  },
+  {
+    id: 'prism-been',
+    name: 'Been',
+    tagline: 'Snake Charmer\'s Wail',
+    description: 'The pungi (also called been or murli) — a double-piped wind instrument traditionally played by the Sapera community of Rajasthan, consisting of a gourd reservoir with two bamboo pipes (one melody, one drone). The player uses circular breathing to produce an unbroken, hypnotic, nasal wail. Associated with the Kalbeliya community (UNESCO Intangible Cultural Heritage, 2010). Supports Shruti22 microtuning for Rajasthani folk scales.',
+    category: 'instrument',
+    collection: 'raga',
+    features: ['Circular breathing model', 'Gourd resonance', 'Dual pipe drone', 'Nasal tone shaping', 'Shruti22 microtuning'],
+    formats: ['VST3', 'AU'],
+    price: 29,
+    gradient: 'from-emerald-700 via-teal-500 to-lime-400',
+    iconBg: 'bg-gradient-to-br from-emerald-700/20 to-teal-500/20',
+    accentColor: '#047857',
+  },
 ];
 
 // ─── CROSSROADS (Middle East / North Africa) ────────────────────────────────
@@ -1167,15 +1242,15 @@ const terraAustralisPlugins: Plugin[] = [
     accentColor: '#CC7722',
   },
   {
-    id: 'prism-putatara',
-    name: 'P\u016bt\u0101tara',
-    tagline: 'Voice of the Marae',
-    description: 'A M\u0101ori conch shell trumpet used for signaling, ceremonial announcements, and welcoming visitors onto the marae. Produces a deep, resonant, slightly unstable brass-like tone. The call of the conch announces arrivals, marks significant moments, and connects the human world to the spiritual realm in the p\u014dwhiri welcome ceremony.',
+    id: 'prism-clapsticks',
+    name: 'Clapsticks',
+    tagline: 'Songline Rhythm',
+    description: 'A pair of short hardwood sticks (bilma) struck together to maintain rhythm during Aboriginal Australian ceremonies and songlines. Pure synthesis \u2014 no samples. The clapsticks are the rhythmic backbone of the oldest continuous musical tradition on earth, keeping time as singers map the landscape through song.',
     category: 'instrument',
     collection: 'terra-australis',
-    features: ['Conch resonance', 'Ceremonial calls', 'Timbral variation', 'Flax binding model', 'Sacred presets'],
+    features: ['Wood body model', 'Strike dynamics', 'Ceremony patterns', 'Songline presets', 'Pure synthesis'],
     formats: ['VST3', 'AU'],
-    price: 39,
+    price: 29,
     gradient: 'from-stone-600 via-amber-500 to-orange-400',
     iconBg: 'bg-gradient-to-br from-stone-600/20 to-amber-500/20',
     accentColor: '#A16207',
@@ -1327,7 +1402,7 @@ export const collections: Collection[] = [
     accentColor: '#CA8A04',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(202,138,4,0.08) 0%, transparent 70%)',
     plugins: griotPlugins,
-    price: 99,
+    price: 79,
     suitePrice: 599,
     group: 'world',
     region: 'West Africa',
@@ -1336,15 +1411,15 @@ export const collections: Collection[] = [
     id: 'raga',
     name: 'Raga',
     subtitle: 'South Asian Traditions',
-    description: 'The instruments of Hindustani classical music \u2014 from sacred tabla rhythms to the soaring sitar.',
-    longDescription: 'The Raga Collection brings the depth and devotion of South Asian classical music into your DAW. Five instruments spanning percussion and melody \u2014 the tabla\'s spoken rhythmic language, the bansuri\'s divine breath, the sarangi\'s hundred colors, the santoor\'s cascading crystal, and the sitar\'s resonant raga \u2014 each with authentic microtuning, ornament systems, and expressive controls that honor centuries of tradition.',
+    description: 'Ten instruments spanning Hindustani and Carnatic classical music, Punjabi folk, Qawwali devotional, and Rajasthani tradition.',
+    longDescription: 'The largest world collection \u2014 ten instruments covering the full breadth of South Asian music. Five melodic and plucked instruments (sitar, sarangi, santoor, bansuri, been) and five percussion and keyboard instruments (tabla, dhol, dholak, mridangam, harmonium). Hindustani and Carnatic classical, Punjabi Bhangra, Qawwali devotion, Bollywood film scoring, and Rajasthani folk are all represented. Every instrument supports Shruti22 microtuning, AI-generated patterns in traditional tala and raga frameworks, and expressive MIDI CC control over playing technique.',
     gradient: 'from-amber-600 via-orange-500 to-red-400',
     textGradientClass: 'text-gradient-raga',
     glowClass: 'glow-raga',
     accentColor: '#D97706',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.08) 0%, transparent 70%)',
     plugins: ragaPlugins,
-    price: 119,
+    price: 149,
     suitePrice: 599,
     group: 'world',
     region: 'South Asia',
@@ -1361,7 +1436,7 @@ export const collections: Collection[] = [
     accentColor: '#0D9488',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(13,148,136,0.08) 0%, transparent 70%)',
     plugins: crossroadsPlugins,
-    price: 119,
+    price: 69,
     suitePrice: 599,
     group: 'world',
     region: 'Middle East & Persia',
@@ -1378,7 +1453,7 @@ export const collections: Collection[] = [
     accentColor: '#D97706',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.08) 0%, rgba(79,70,229,0.04) 50%, transparent 70%)',
     plugins: horizonsPlugins,
-    price: 119,
+    price: 69,
     suitePrice: 599,
     group: 'world',
     region: 'Global',
@@ -1395,7 +1470,7 @@ export const collections: Collection[] = [
     accentColor: '#7BB8D4',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(123,184,212,0.08) 0%, transparent 70%)',
     plugins: fjordPlugins,
-    price: 99,
+    price: 59,
     suitePrice: 599,
     group: 'world',
     region: 'Nordic',
@@ -1412,7 +1487,7 @@ export const collections: Collection[] = [
     accentColor: '#2D7A4F',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(45,122,79,0.08) 0%, transparent 70%)',
     plugins: ceolPlugins,
-    price: 79,
+    price: 49,
     suitePrice: 599,
     group: 'world',
     region: 'Celtic',
@@ -1429,7 +1504,7 @@ export const collections: Collection[] = [
     accentColor: '#C41E3A',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(196,30,58,0.08) 0%, transparent 70%)',
     plugins: fuegoPlugins,
-    price: 79,
+    price: 49,
     suitePrice: 599,
     group: 'world',
     region: 'Mediterranean',
@@ -1446,7 +1521,7 @@ export const collections: Collection[] = [
     accentColor: '#B22222',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(178,34,34,0.08) 0%, transparent 70%)',
     plugins: tengriPlugins,
-    price: 99,
+    price: 59,
     suitePrice: 599,
     group: 'world',
     region: 'East Asia',
@@ -1455,15 +1530,15 @@ export const collections: Collection[] = [
     id: 'terra-australis',
     name: 'Terra Australis',
     subtitle: 'Pacific & Indigenous',
-    description: 'The oldest continuous musical traditions on earth \u2014 Aboriginal Australian and M\u0101ori instruments.',
-    longDescription: 'The Terra Australis Collection represents the oldest and most unique musical traditions on the planet. The didgeridoo\'s 2,000-year-old drone traditions and the p\u016bt\u0101tara\'s ceremonial conch calls are instruments fundamentally different from anything in the Western or Asian traditions \u2014 the final frontier of cultural representation in the plugin world.',
+    description: 'The oldest continuous musical traditions on earth \u2014 Aboriginal Australian instruments spanning 2,000+ years.',
+    longDescription: 'The Terra Australis Collection represents the oldest continuous musical traditions on the planet. The didgeridoo\'s ancient drone techniques and the clapsticks\' ceremonial rhythms are instruments fundamentally different from anything in the Western or Asian traditions \u2014 the final frontier of cultural representation in the plugin world.',
     gradient: 'from-amber-700 via-orange-600 to-red-500',
     textGradientClass: 'text-gradient-terra',
     glowClass: 'glow-terra',
     accentColor: '#CC7722',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(204,119,34,0.08) 0%, transparent 70%)',
     plugins: terraAustralisPlugins,
-    price: 59,
+    price: 39,
     suitePrice: 599,
     group: 'world',
     region: 'Pacific',
@@ -1480,7 +1555,7 @@ export const collections: Collection[] = [
     accentColor: '#29AB87',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(41,171,135,0.08) 0%, transparent 70%)',
     plugins: selvaPlugins,
-    price: 49,
+    price: 39,
     suitePrice: 599,
     group: 'world',
     region: 'South America',
@@ -1497,7 +1572,7 @@ export const collections: Collection[] = [
     accentColor: '#8B0000',
     bgPattern: 'radial-gradient(ellipse at 50% 0%, rgba(139,0,0,0.08) 0%, transparent 70%)',
     plugins: warpathPlugins,
-    price: 69,
+    price: 49,
     suitePrice: 599,
     group: 'world',
     region: 'Cross-Cultural',
@@ -1524,3 +1599,102 @@ export function getPluginById(id: string): { plugin: Plugin; collection: Collect
 export const totalPluginCount = collections.reduce((sum, c) => sum + c.plugins.length, 0);
 export const worldPluginCount = worldCollections.reduce((sum, c) => sum + c.plugins.length, 0);
 export const completeSuitePrice = 599;
+export const worldCompletePrice = 299;
+
+// ─── Instrument Family Bundles ──────────────────────────────────────────────
+
+export interface InstrumentFamilyBundle {
+  id: string;
+  name: string;
+  subtitle: string;
+  description: string;
+  pluginIds: string[];
+  price: number;
+  gradient: string;
+  accentColor: string;
+}
+
+export const instrumentFamilyBundles: InstrumentFamilyBundle[] = [
+  {
+    id: 'world-strings-plucked',
+    name: 'World Strings — Plucked',
+    subtitle: '9 instruments across 7 traditions',
+    description: 'Every plucked string instrument in the catalog. The kora\'s cascading arpeggios, the sitar\'s sympathetic resonance, the oud\'s fretless microtones, the koto\'s silk-stringed precision, and more. Physical modeling captures the interaction between fingers, strings, and wooden bodies — pluck position, nail angle, and string damping all respond to velocity and modulation.',
+    pluginIds: ['prism-kora', 'prism-mbira', 'prism-sitar', 'prism-oud', 'prism-charango', 'prism-berimbau', 'prism-bouzouki', 'prism-koto', 'prism-pipa'],
+    price: 129,
+    gradient: 'from-amber-500 via-yellow-400 to-orange-300',
+    accentColor: '#CA8A04',
+  },
+  {
+    id: 'world-strings-bowed',
+    name: 'World Strings — Bowed',
+    subtitle: '7 instruments across 6 traditions',
+    description: 'Bowed strings from India to Scandinavia. Each instrument uses bow-exciter physical modeling with per-instrument bow pressure curves, rosin friction coefficients, and sympathetic string resonance. The sarangi\'s 35 sympathetic strings, the erhu\'s snake-skin membrane, the nyckelharpa\'s keyed tangent mechanism, and the hurdy-gurdy\'s crank-wheel drone are all distinct DSP architectures sharing the same engine.',
+    pluginIds: ['prism-sarangi', 'prism-kamancheh', 'prism-morin-khuur', 'prism-nyckelharpa', 'prism-tagelharpa', 'prism-erhu', 'prism-hurdy-gurdy'],
+    price: 99,
+    gradient: 'from-violet-500 via-purple-400 to-fuchsia-300',
+    accentColor: '#7C3AED',
+  },
+  {
+    id: 'world-winds',
+    name: 'World Winds',
+    subtitle: '9 instruments across 9 traditions',
+    description: 'Blown, reed, and brass instruments spanning bamboo flutes to bronze war horns. Blow-exciter and bore-resonator physical modeling handles everything from the bansuri\'s edge-blown embouchure to the duduk\'s double-reed, the uilleann pipes\' bellows pressure, the didgeridoo\'s circular breathing drone, and the been\'s gourd-resonated double pipes. Breath dynamics, lip pressure, and embouchure shape are all controllable via MIDI CC.',
+    pluginIds: ['prism-bansuri', 'prism-ney', 'prism-duduk', 'prism-tin-whistle', 'prism-uilleann-pipes', 'prism-didgeridoo', 'prism-zampona', 'prism-ocarina', 'prism-been'],
+    price: 129,
+    gradient: 'from-sky-400 via-blue-400 to-indigo-400',
+    accentColor: '#0EA5E9',
+  },
+  {
+    id: 'world-percussion',
+    name: 'World Percussion',
+    subtitle: '11 instruments across 8 traditions',
+    description: 'Hand drums, frame drums, stick percussion, and body percussion from every continent. Strike-exciter physical modeling with per-instrument membrane, skin, and shell characteristics. The tabla\'s tuned bayan, the dhol\'s Bhangra thunder, the mridangam\'s Carnatic precision, the taiko\'s massive barrel resonance, the cajon\'s wooden box acoustics, and the bodhran\'s goatskin are all physically distinct models. Velocity-mapped timbral zones replicate real playing positions.',
+    pluginIds: ['prism-dundun', 'prism-tabla', 'prism-dhol', 'prism-dholak', 'prism-mridangam', 'prism-daf', 'prism-bodhran', 'prism-cajon', 'prism-flamenco-palmas', 'prism-taiko', 'prism-clapsticks'],
+    price: 149,
+    gradient: 'from-red-500 via-rose-400 to-orange-300',
+    accentColor: '#DC2626',
+  },
+  {
+    id: 'world-melodic',
+    name: 'World Melodics',
+    subtitle: '5 tuned percussion, melodic & keyboard instruments',
+    description: 'Hammered, struck, tuned, and keyed melodic instruments. The santoor\'s 100 strings shimmer under twin mallets, the balafon\'s gourd resonators add West African buzz, the gamelan\'s bronze metallophone rings with Javanese tuning, the hang drum\'s steel shell produces overtone-rich tones, and the harmonium\'s bellows-driven free reeds sustain devotional drone and melody. Each uses tine-resonator, string-resonator, or reed physical modeling tuned to the instrument\'s specific material and geometry.',
+    pluginIds: ['prism-balafon', 'prism-santoor', 'prism-gamelan', 'prism-hang-drum', 'prism-harmonium'],
+    price: 89,
+    gradient: 'from-emerald-400 via-teal-400 to-cyan-300',
+    accentColor: '#10B981',
+  },
+  {
+    id: 'world-war-horns',
+    name: 'War Horns & Ceremony',
+    subtitle: '5 ritual instruments',
+    description: 'Instruments of war, ceremony, and spiritual invocation. The lur\'s Bronze Age brass, the horagai\'s conch shell, the native flute\'s cedar body, and the frame drum\'s universal pulse. These instruments exist at the intersection of music and ritual — they are designed to carry sound across valleys, invoke the sacred, and mark the moments that matter.',
+    pluginIds: ['prism-lur', 'prism-horagai', 'prism-native-flute', 'prism-frame-drum', 'prism-didgeridoo'],
+    price: 89,
+    gradient: 'from-red-800 via-rose-600 to-amber-500',
+    accentColor: '#8B0000',
+  },
+];
+
+// ─── Build Your Own Bundle tiers ────────────────────────────────────────────
+
+export interface BYOTier {
+  count: number;
+  price: number;
+  perUnit: number;
+  savingsPercent: number;
+  label: string;
+}
+
+export const byoTiers: BYOTier[] = [
+  { count: 3, price: 59, perUnit: 19.67, savingsPercent: 34, label: 'Starter' },
+  { count: 5, price: 89, perUnit: 17.80, savingsPercent: 41, label: 'Producer' },
+  { count: 10, price: 149, perUnit: 14.90, savingsPercent: 50, label: 'Composer' },
+];
+
+// ─── Pattern Library ────────────────────────────────────────────────────────
+
+export const patternLibraryPrice = 49;
+export const patternLibraryPatternCount = 10000;
+export const patternLibraryGenreCount = 28;
