@@ -95,6 +95,9 @@ export default function Navigation() {
           <Link href="/pricing" className={`text-[15px] transition ${isActive('/pricing') ? 'font-medium text-white' : 'text-white/70 hover:text-white'}`}>
             Pricing
           </Link>
+          <Link href="/prism-link" className={`text-[15px] transition ${isActive('/prism-link') ? 'font-medium text-white' : 'text-white/70 hover:text-white'}`}>
+            Prism Link
+          </Link>
           <Link href="/about" className={`text-[15px] transition ${isActive('/about') ? 'font-medium text-white' : 'text-white/70 hover:text-white'}`}>
             About
           </Link>
