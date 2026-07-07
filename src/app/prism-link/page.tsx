@@ -73,6 +73,47 @@ export default function PrismLinkPage() {
         </div>
       </section>
 
+      {/* Broadcast table */}
+      <section className="py-20 border-t border-white/[0.04]">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 max-w-3xl">
+            <h2 className="text-[28px] font-bold text-white/90">What Seismic broadcasts</h2>
+            <p className="mt-4 text-[16px] leading-[1.8] text-white/55">
+              Seismic is the origin — it broadcasts, every other instrument receives. Eight streams leave it on every audio block; each linked instrument reads the ones it needs and routes them onto a musically-appropriate default destination, automatable and overridable per patch.
+            </p>
+          </div>
+          <div className="overflow-x-auto rounded-2xl border border-white/[0.06]">
+            <table className="w-full border-collapse text-left">
+              <thead>
+                <tr className="bg-white/[0.03]">
+                  <th className="px-6 py-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-prism-cyan/60">Component</th>
+                  <th className="px-6 py-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-prism-cyan/60">What it broadcasts</th>
+                  <th className="px-6 py-4 text-[12px] font-semibold uppercase tracking-[0.12em] text-prism-cyan/60">Receivers use it for</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  { c: "SEISMIC ● ORIGIN", b: "identity — it is the source, always", u: "—" },
+                  { c: "KICK ENV", b: "the kick voice's amp envelope", u: "the primary modulation source — filter and param boosts duck to the kick" },
+                  { c: "SNARE", b: "snare trigger / edge", u: "transient-synced accents" },
+                  { c: "RING · 250 Hz", b: "the Fuse ring-carrier frequency", u: "Fuse mode — ring-mod / microtimbral fusion" },
+                  { c: "STEP · 1/16", b: "sequencer step position", u: "rhythmic / pattern sync" },
+                  { c: "BPM", b: "tempo", u: "tempo-locked LFOs and rates" },
+                  { c: "MOD WHEEL · CC1", b: "the shared performance mod wheel", u: "the link-overridable mod-wheel destination" },
+                  { c: "→ FUSE → LINKED", b: "the bus → all linked instruments", u: "the destination side — every receiver tuned to this Link ID" },
+                ].map((r, i) => (
+                  <tr key={r.c} className={i % 2 ? "bg-white/[0.01]" : ""}>
+                    <td className="border-t border-white/[0.05] px-6 py-4 text-[14px] font-semibold text-white/85 whitespace-nowrap">{r.c}</td>
+                    <td className="border-t border-white/[0.05] px-6 py-4 text-[14px] leading-relaxed text-white/65">{r.b}</td>
+                    <td className="border-t border-white/[0.05] px-6 py-4 text-[14px] leading-relaxed text-white/65">{r.u}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
       {/* Not sidechaining */}
       <section className="py-20 border-t border-white/[0.04]">
         <div className="mx-auto max-w-7xl px-6">
@@ -150,6 +191,31 @@ export default function PrismLinkPage() {
               </ul>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Under the hood */}
+      <section className="py-20 border-t border-white/[0.04]">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-12 max-w-3xl">
+            <h2 className="text-[28px] font-bold text-white/90">Under the hood</h2>
+            <p className="mt-4 text-[16px] leading-[1.8] text-white/55">How the connection works, technically.</p>
+          </div>
+          <div className="grid gap-6 lg:grid-cols-3">
+            {[
+              { t: "A shared bus, not a cable", d: "Seismic writes its eight streams to a small shared-memory bus on every block; receivers read it. There is no routing to set up and no signal cable between tracks — enable the link and every instrument on the same Link ID finds it." },
+              { t: "Control data, never audio", d: "Only envelopes, triggers, pitch, step, tempo, and the carrier cross the link — no audio. So there is no added latency, no bleed, and nothing to gain-stage, and it survives the sandbox each plugin runs in inside the host." },
+              { t: "Link IDs keep racks separate", d: "Each link belongs to one of eight Link IDs. Two independent Seismic-led racks can run in the same session without crosstalk — a receiver only follows the Seismic on its own ID." },
+            ].map((c) => (
+              <div key={c.t} className="rounded-2xl border border-white/[0.06] bg-[#14152E] p-7">
+                <h4 className="text-[16px] font-semibold text-white/85">{c.t}</h4>
+                <p className="mt-3 text-[14px] leading-[1.8] text-white/65">{c.d}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 max-w-3xl text-[15px] leading-[1.9] text-white/55">
+            Each receiver maps the broadcast onto a sensible default the moment you enable it — pads and keys lift their filter on the kick envelope, a ring modulator locks to the Fuse carrier so tuned textures stay in the kit&apos;s pitch center, gates and arps line up to the step grid, and one mod-wheel gesture moves the whole linked rack. Every destination is automatable and can be re-pointed per patch.
+          </p>
         </div>
       </section>
 
