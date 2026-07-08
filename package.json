@@ -8,7 +8,9 @@
     "start": "next start -p ${PORT:-3000}",
     "lint": "eslint",
     "check:trademarks": "node scripts/check-trademarks.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "generate:catalog": "node scripts/generate-catalog.mjs",
+    "check:catalog": "node scripts/check-catalog.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
