@@ -35,6 +35,9 @@ jobs:
       - name: Trademark guard
         run: npm run check:trademarks
 
+      - name: Catalog reconciliation
+        run: npm run check:catalog
+
       - name: Typecheck
         run: npm run typecheck
 
