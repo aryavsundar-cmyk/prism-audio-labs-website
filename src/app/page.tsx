@@ -6,7 +6,7 @@ import InfiniteMarquee from '@/components/InfiniteMarquee';
 export default function Home() {
   const heroBgImages = [
     { id: 'dragonbreath-pedal', pos: 'top-[10%] left-[5%]', size: 'w-[340px] h-[340px]', opacity: 'opacity-[0.07]' },
-    { id: 'stellar-supersaw', pos: 'top-[15%] right-[8%]', size: 'w-[280px] h-[280px]', opacity: 'opacity-[0.05]' },
+    { id: 'stellar-saw', pos: 'top-[15%] right-[8%]', size: 'w-[280px] h-[280px]', opacity: 'opacity-[0.05]' },
     { id: 'prism-tabla', pos: 'bottom-[15%] left-[15%]', size: 'w-[260px] h-[260px]', opacity: 'opacity-[0.05]' },
     { id: 'prism-lur', pos: 'bottom-[10%] right-[12%]', size: 'w-[300px] h-[300px]', opacity: 'opacity-[0.06]' },
   ];

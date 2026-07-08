@@ -17,14 +17,14 @@ export const metadata: Metadata = {
 // 12 best MidJourney images for gallery
 const galleryPlugins = [
   { id: 'dragonbreath-pedal', name: 'Dragonbreath' },
-  { id: 'stellar-supersaw', name: 'Stellar Supersaw' },
+  { id: 'stellar-saw', name: 'Stellar Saw' },
   { id: 'nebula-mfx', name: 'Nebula MFX' },
   { id: 'prism-tabla', name: 'Tabla' },
   { id: 'glacier-plate', name: 'Glacier Plate' },
-  { id: 'comet-juno', name: 'Comet Juno' },
+  { id: 'comet-poly', name: 'Comet Poly' },
   { id: 'magma-hard-synth', name: 'Magma Hard Synth' },
   { id: 'prism-oud', name: 'Oud' },
-  { id: 'astral-rhodes', name: 'Astral Rhodes' },
+  { id: 'astral-keys', name: 'Astral Keys' },
   { id: 'aurora-string-pad', name: 'Aurora String Pad' },
   { id: 'prism-kora', name: 'Kora' },
   { id: 'telluric-analog-synth', name: 'Telluric Analog Synth' },

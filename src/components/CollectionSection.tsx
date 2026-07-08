@@ -118,7 +118,7 @@ export default function CollectionSection({ collection }: { collection: Collecti
               <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-purple-400/50">The Collection</span>
               <h3 className="mt-1 text-2xl font-bold text-gradient-cosmos">Synthesizers & Celestial Effects</h3>
               <p className="mt-3 max-w-xl text-sm leading-relaxed text-slate-400">
-                From blazing supersaw leads to the frozen silence of deep space. Vintage keys reimagined through a cosmic lens.
+                From blazing detuned-saw leads to the frozen silence of deep space. Vintage keys reimagined through a cosmic lens.
               </p>
             </div>
             <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
