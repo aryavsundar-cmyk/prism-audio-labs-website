@@ -36,7 +36,9 @@ const TRADEMARKS = [
   // effects / gear
   "binson", "echorec", "space echo", "echoplex", "copicat", "big muff",
   "tube screamer", "\\bklon\\b", "strymon", "eventide", "lexicon",
-  "electro-harmonix", "rubberneck", "meatbox", "boneshaker", "carcosa", "fuzz war",
+  "electro-harmonix", "\\behx\\b", "\\bboss\\b", "\\bpog\\b", "oc-?2",
+  "\\bmxr\\b", "phase 90", "small stone", "memory man", "dm-?2",
+  "rubberneck", "meatbox", "boneshaker", "carcosa", "fuzz war",
   "\\bppg\\b", "blofeld", "centaur", "octavia", "shin-ei", "ts-?808", "\\bce-1\\b",
   "jp-?8000", "re-?201", "h8000", "pcm96", "model d", "taurus",
   // artists / bands (world + popular)
