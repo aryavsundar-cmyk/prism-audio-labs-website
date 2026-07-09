@@ -30,14 +30,13 @@ const ALIASES = [
   { build: "Prism Dragonbreath FX",   site: "Dragonbreath" },
   { build: "Prism Native Flute",      site: "Native American Flute" },
   { build: "Prism Palmas",            site: "Flamenco Palmas" },
-  { build: "Prism Octaver",           site: "Prisma Octaver", note: "site says 'Prisma Octaver' — confirm vs 'Prism Octaver' (likely a typo)" },
 ];
 
 // Known, accepted roster gaps: ship-but-not-sold, awaiting a product decision.
 // Each entry warns (doesn't fail) so CI stays green while the decision is open,
 // but stays visible as a forcing function. Remove once resolved.
 const KNOWN_GAPS = {
-  seismic: "Prism Seismic ships but has no store listing — pending pricing/copy decision (see backlog).",
+  // (empty — Seismic now has a store listing; roster is fully reconciled)
 };
 
 const catalog = JSON.parse(readFileSync(join(ROOT, "src/data/catalog.json"), "utf8"));
